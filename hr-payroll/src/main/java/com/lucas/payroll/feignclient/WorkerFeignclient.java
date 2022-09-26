@@ -14,7 +14,7 @@ import com.lucas.payroll.entities.Worker;
  * */
 
 @Component // Será gerenciado pelo Spring, vai ser injetado para outras classes
-@FeignClient(name = "hr-worker", url= "localhost:8001", path= "/workers")
+@FeignClient(name = "hr-worker", path= "/workers")
 public interface WorkerFeignclient {
 
 	// Ele procurar o trabalhador pelo ID.

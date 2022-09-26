@@ -2,7 +2,10 @@ package com.lucas.hrworker.recources;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +21,12 @@ import com.lucas.hrworker.repositories.WorkerRepositories;
 @RestController
 @RequestMapping(value = "/workers")//Caminho padrão
 public class WorkerResource {
+	
+	// Imprimir inform. LOG
+	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
+	
+	@Autowired
+	private Environment env;
 	
 	//Retornar todos os trabalhadores, que estão no banco de dados
 	@Autowired
@@ -35,6 +44,9 @@ public class WorkerResource {
 	// Ele procurar o trabalhador pelo ID. 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findByid(@PathVariable Long id){// PathVariable - para que Id do parametro seja reconhecido pela variavel
+		
+		logger.info("PORT = " + env.getProperty("local.server.port"));
+		
 		Worker obj = repository.findById(id).get();
 		
 		// OK - requisão foi feita com sucesso
