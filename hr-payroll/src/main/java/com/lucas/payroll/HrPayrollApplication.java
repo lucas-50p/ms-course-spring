@@ -17,15 +17,14 @@ public class HrPayrollApplication {
 	 * */
 	
 	/*
-	 * 	Ribbon - Balanceador de cargas.
+    Ribbon - Balanceador de cargas.
 	Que pode levantar mais de uma inatância do mesmo projeto.
 	Quando um projeto fizer uma requisão para outro projeto.
 	Quando um projeto fizer uma requição para outro projeto, que tem mais de uma instância levantada.
 	Vai haver um balancemento de carga ou seja, 
 	instância E isso forma alternada, equilibrando, balanceando assim o volume de requições para aquele projeto.
-	 * */
+	* */
 	public static void main(String[] args) {
 		SpringApplication.run(HrPayrollApplication.class, args);
 	}
-
 }
