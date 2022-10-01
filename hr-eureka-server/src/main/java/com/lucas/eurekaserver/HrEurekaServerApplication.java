@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class HrEurekaServerApplication {
 	
 	/*
-	 * O servidor EUREka vai tratar de registrar todas as instâncias caso seja mais de uma.
+	 * O servidor EUREKA vai tratar de registrar todas as instâncias caso seja mais de uma.
 	 * Quando precisar de um micro serviço, chama o micro serviço apenas pelo nome.
 	 * Tudo vai ser automático
 	 */
