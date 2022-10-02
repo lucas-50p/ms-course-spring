@@ -2,13 +2,19 @@ package com.lucas.payroll;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableCircuitBreaker
 @EnableEurekaClient// Já tem balanceamento de carga integrado - add app. Properties add o caminho(eureka.client.service-url.defaultZone=http://localhost:8761/eureka)
 @EnableFeignClients
 @SpringBootApplication
 public class HrPayrollApplication {
+	
+	/*
+	 * HYSTRIX: permite tratar falhas, serviço esta fora do ar ou Timeout
+	 */
 	
 	/*
 	 * O servidor EUREKA vai tratar de registrar todas as instâncias caso seja mais de uma.

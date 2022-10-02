@@ -18,6 +18,9 @@ import com.lucas.hrworker.repositories.WorkerRepositories;
 /**
  * Recurso web que vai disponibilizar os endpoints
  * */
+/*
+ * Balancemento de carga Ribbon - Ele tem tempo de 1 segundo
+ */
 @RestController
 @RequestMapping(value = "/workers")//Caminho padrão
 public class WorkerResource {
@@ -45,6 +48,15 @@ public class WorkerResource {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findByid(@PathVariable Long id){// PathVariable - para que Id do parametro seja reconhecido pela variavel
 		
+		/*
+		 * 		try {
+			Thread.sleep(3000L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 */
+
 		logger.info("PORT = " + env.getProperty("local.server.port"));
 		
 		Worker obj = repository.findById(id).get();

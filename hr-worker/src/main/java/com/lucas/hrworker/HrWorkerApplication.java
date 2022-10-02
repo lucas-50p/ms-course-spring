@@ -13,6 +13,10 @@ public class HrWorkerApplication {
 	 * Quando precisar de um micro serviço, chama o micro serviço apenas pelo nome.
 	 * Tudo vai ser automático
 	 */
+	
+	/*
+	 * HYSTRIX: permite tratar falhas, serviço esta fora do ar ou Timeout
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(HrWorkerApplication.class, args);
 	}
