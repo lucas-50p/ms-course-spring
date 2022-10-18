@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,12 @@ import com.lucas.hrworker.repositories.WorkerRepositories;
 /*
  * Balancemento de carga Ribbon - Ele tem tempo de 1 segundo
  */
+/*
+ * @RefreshScope
+ * Em tempo de execução - runtime
+   Vai atualizar as configurações do sistema sem precisar baixar de novo ou derrubar o sistema.
+ */
+@RefreshScope //em toda classe que possua algum acesso ás configurações.
 @RestController
 @RequestMapping(value = "/workers")//Caminho padrão
 public class WorkerResource {
@@ -29,8 +36,9 @@ public class WorkerResource {
 	// Imprimir inform. LOG
 	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 	
+	//TODO remover
 	//@Value("${test.config}")
-	private String testConfig;
+	//private String testConfig;
 
 	@Autowired
 	private Environment env;
