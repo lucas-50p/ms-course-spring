@@ -1,4 +1,4 @@
-package com.lucas.hrconfigserver;
+package com.lucas.hruser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
