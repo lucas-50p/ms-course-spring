@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,8 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)// para ID que seja gerado automaticamente no banco de dados
 	private Long id;
 	private String name;
+	
+	@Column(unique = true) //Garantir que não possa repetir
 	private String email;
 	private String password;
 	
