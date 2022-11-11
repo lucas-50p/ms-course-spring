@@ -31,7 +31,7 @@ public class UserResource {
 	
 	// Exemplo: Search?email=nina@gmail.com
 	@GetMapping(value = "/search")
-	public ResponseEntity<User> findByid(@RequestParam String email) {
+	public ResponseEntity<User> findByEmail(@RequestParam String email) {
 
 		User obj = repository.findByEmail(email);
 
